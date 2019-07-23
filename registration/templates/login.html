@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>REGESTRATION</title>
+
+</head>
+
+<body>
+
+<form method="POST" action=" ">
+        {%csrf_token%}
+<table border="1" align="center" width="500" bgcolor="4CBBE4" >
+
+<caption><b><h1><u>LOGIN FORM</u> </h1></b></caption>
+
+<tr>
+
+<th>Enter your User Name</th>
+
+<td><input type="text" name="Username" id="Username"  title="enter your User Name" placeholder="Enter your User Name"/></td>
+
+</tr>
+<tr>
+
+        <th>Enter your Password </th>
+        
+        <td><input type="password" name="pass" id="pass"  title="enter your Password" placeholder="Enter your Password"/></td>
+        
+</tr>
+<tr>
+
+        <td colspan="2" align="center"><input type="submit" value="Save My Data"/>
+        
+        <input type="reset" value="Reset Data"/>
+        
+        </td>
+</tr>
+</table>
+<div class="container signin">
+        <p> <center> Don't have an account? <a href="http://127.0.0.1:8000/api/signup/">Sign in</a>.</center></p>
+      </div>
+</form>
+<div>
+        {%for message in messages %}
+        <h3> {{message}}</h3>
+        {% endfor %}
+</div>
+</body>
+</html>

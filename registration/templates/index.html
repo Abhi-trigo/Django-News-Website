@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>REGESTRATION</title>
+
+</head>
+
+<body>
+
+<form method="POST" action=" ">
+        {%csrf_token%}
+<table border="1" align="center" width="800" bgcolor="4CBBE4" >
+
+<caption><b><h1><u>REGISTRATION FORM</u> </h1></b></caption>
+
+<tr>
+
+<th>Enter your first name</th>
+
+<td><input type="text" name="first_name" id="first_name" maxlength="10" title="enter your first name" placeholder="Enter your First Name" required/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your last name</th>
+
+<td><input type="text" name="last_name" id="last_name" maxlength='10' placeholder="Enter Your Last Name"/></td>
+
+</tr>
+<tr>
+
+        <th>Enter your User Name</th>
+        
+        <td><input type="text" name="username" id="username"  maxlength="15" placeholder="Enter Your User Name"/></td>
+        
+</tr>
+<tr>
+
+<th>Enter your password</th>
+
+<td><input type="password" name="pass" id="pass" minlength="8" placeholder="Enter Your Password"/></td>
+
+</tr>
+
+<tr>
+
+<th>ReEnter your password</th>
+
+<td><input type="password" name="rpass" id="rpass" minlength="8" placeholder="Re-enter Your Password"/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your email</th>
+
+<td><input type="email" name="email" id="email" placeholder="Eneter Your email-id"/></td>
+
+</tr>
+
+<tr>
+
+<th>Enter your mobile</th>
+
+<td><input type="tel" name="phone" id="phone" minlength="10" maxlength="11" placeholder="Enter Your Mobile Number"/></td>
+
+</tr>
+<tr>
+
+<th>Select your gender</th>
+
+<td>
+
+male<input type="radio" name="g" value="m"/>
+female<input type="radio" name="g" value="f"/>
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>Select your DOB</th>
+
+<td><input type="date" name="ddate" id="ddate"/></td>
+
+</tr>
+<tr>
+
+<td colspan="2" align="center"><input type="submit" value="Save My Data"/>
+
+<input type="reset" value="Reset Data"/>
+
+</td>
+
+</tr>
+
+</table>
+<div class="container signin">
+    <p> <center> Already have an account? <a href="http://127.0.0.1:8000/api/login/">Log in</a>.</center></p>
+</div>
+</form>
+    
+
+
+</body>
+
+</html>
