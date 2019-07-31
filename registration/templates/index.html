@@ -100,10 +100,14 @@ female<input type="radio" name="g" value="f"/>
 
 </table>
 <div class="container signin">
-    <p> <center> Already have an account? <a href="http://127.0.0.1:8000/api/login/">Log in</a>.</center></p>
+    <p> <center> Already have an account? <a href="http://127.0.0.1:8000/newsplatform/login">Log in</a>.</center></p>
 </div>
 </form>
-    
+<div>
+                {%for message in messages %}
+                <h3> {{message}}</h3>
+                {% endfor %}
+        </div>
 
 
 </body>

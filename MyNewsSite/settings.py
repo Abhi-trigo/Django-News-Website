@@ -35,9 +35,19 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sessions.backends.signed_cookies',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'registration',
 ]
+
+REST_FRAMEWORK={
+    'DEFAULT_PERMISSON_CLASSES':[
+        'rest_framework.permission.DjangoModelPermissinOrAnonReadOnly',
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
