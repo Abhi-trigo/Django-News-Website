@@ -30,7 +30,6 @@ def news(request):
                 mylist=zip(news,desc,img)
             return render(request,'welcome.html',context={"mylist":mylist,'user':temp1})
         else:
-            print("check2") 
             return redirect("login")    
 
 
@@ -41,33 +40,24 @@ def login (request):
         user=Users.objects.filter(User_name=username,Password=password)
         if(user.exists()):
             temp=Token.objects.filter(Userid_id=user[0].User_id)
-            print("temp",temp)   
             if(temp.exists()):
-                print("me")
                 return redirect("home")
             else:
                 y=request.COOKIES.get('Token')
                 print("cookie",y)
                 x=secrets.token_bytes(5)
-                print("x",x)
                 x=str(x)
-                #request.session[username + "chck"] = x
-                #print("session")
                 g_token=Token(Userid_id=user[0].User_id,Tokens=x)
                 g_token.save();
-                print("g_token",g_token)
                 response=render_to_response('homepage.html',{'data':user})
                 response.set_cookie('Token',x)
                 return response 
             
         else:
             messages.info(request,"Invalid Credential")
-            print("9")
             return render(request,"login.html")
     else:   
-        print("8")
         x=request.COOKIES.get('Token')
-        print("check")
         if(x!=None):
             temp=Token.objects.filter(Tokens=x)
             temp1=Users.objects.filter(User_id=temp[0].Userid_id)
@@ -92,27 +82,21 @@ def signup(request):
         if(password==rpassword):
             if(User.objects.filter(username=username).exists()):
                 messages.info(request,'Username already exist')
-                print("7")
                 return render(request,'index.html')
             elif (User.objects.filter(email=email).exists()):
                 messages.info(request,"E-mail already exist ")
-                print("6")
                 return render(request,'index.html')
             else:
                 user=Users(User_name=username,Password=password,Email=email,
                 First_name=first,Last_name=last,Phone_no=tel,Date_of_Birth=dob,Gender=gen)
                 user.save();
                 messages.success(request,'You Have Registered Successfully')
-                print("2")
                 return redirect('login')
         else:
             messages.info(request,"Password doesnot matched")
-            print("1")
             return render(request,"index.html")
     else:
-        print("3")
         x=request.COOKIES.get('Token')
-        print("check")
         if(x!=None):
             temp=Token.objects.filter(Tokens=x)
             temp1=Users.objects.filter(User_id=temp[0].Userid_id)
@@ -125,7 +109,6 @@ def signup(request):
 
 def home(request):
     x=request.COOKIES.get('Token') 
-    print("check")
     if(x!=None):
         temp=Token.objects.filter(Tokens=x)
         temp1=Users.objects.filter(User_id=temp[0].Userid_id)
@@ -137,8 +120,6 @@ def home(request):
 
 def logout(request):
     data={}
-    #request.session["chck"] =
-    #print(x)
     x=request.COOKIES.get('Token')
     temp=Token.objects.filter(Tokens=x)
     if(temp.exists()):
