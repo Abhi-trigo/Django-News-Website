@@ -11,8 +11,6 @@ class Users(models.Model):
     Email=models.EmailField()
     Phone_no=models.BigIntegerField()
     Password=models.CharField(max_length=128)
-    is_active=models.BooleanField(default=False)
-
 class Token(models.Model):
     Userid=models.ForeignKey(
         Users,

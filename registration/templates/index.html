@@ -74,8 +74,8 @@
 
 <td>
 
-male<input type="radio" name="g" value="m"/>
-female<input type="radio" name="g" value="f"/>
+male<input type="radio" name="g" id='g' value="m"/>
+female<input type="radio" name="g" id='g' value="f"/>
 
 </td>
 
@@ -105,7 +105,8 @@ female<input type="radio" name="g" value="f"/>
 </form>
 <div>
                 {%for message in messages %}
-                <h3> {{message}}</h3>
+                <h3> {{message}} <br></h3>
+                        
                 {% endfor %}
         </div>
 
