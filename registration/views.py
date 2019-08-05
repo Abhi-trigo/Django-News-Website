@@ -142,7 +142,6 @@ def signup(request):
 
 def home(request):
     x=request.COOKIES.get('Token') 
-    print("check")
     if(x!=None):
         temp=Token.objects.filter(Tokens=x)
         temp1=Users.objects.filter(User_id=temp[0].Userid_id)
